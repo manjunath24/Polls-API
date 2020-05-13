@@ -2,11 +2,11 @@ from fastapi import FastAPI, HTTPException, Response, Depends
 import schema
 from typing import List
 
+from sqlalchemy.orm import Session
+
 import crud
 from database import SessionLocal, engine
 from models import Base
-
-from sqlalchemy.orm import Session
 
 Base.metadata.create_all(bind=engine)
 
