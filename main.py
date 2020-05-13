@@ -59,14 +59,14 @@ def delete_question(qid: int, db: Session = Depends(get_db)):
 
 # Choice
 
-@app.post("/questions/{qid}/choice", response_model=schema.Choice)
-def create_choice(qid: int, choice: schema.Choice, db: Session = Depends(get_db)):
+@app.post("/questions/{qid}/choice", response_model=schema.ChoiceCreate)
+def create_choice(qid: int, choice: schema.ChoiceCreate, db: Session = Depends(get_db)):
 	question = crud.get_question(db=db, qid=qid)
 	if not question:
 		raise HTTPException(status_code=404, detail="Question not found")
 	return crud.create_choice(db=db, qid=qid, choice=choice)
 
-@app.put("/choices/{choice_id}/vote", response_model=schema.Choice)
+@app.put("/choices/{choice_id}/vote", response_model=schema.ChoiceList)
 def update_vote(choice_id: int, db: Session = Depends(get_db)):
 	return crud.update_vote(choice_id=choice_id, db=db)
 

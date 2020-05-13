@@ -6,9 +6,15 @@ from typing import List
 
 # Choice schema
 
-class Choice(BaseModel):
+class ChoiceBase(BaseModel):
 	choice_text: str
 	votes: int = 0
+
+class ChoiceCreate(BaseModel):
+	pass
+
+class ChoiceList(ChoiceBase):
+	id: int
 
 	class Config:
 		orm_mode = True
@@ -30,6 +36,6 @@ class Question(QuestionBase):
 		orm_mode = True
 
 class QuestionInfo(Question):
-	choices: List[Choice] = []
+	choices: List[ChoiceList] = []
 
 

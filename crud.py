@@ -50,7 +50,7 @@ def delete_question(db: Session, qid):
 # Choice
 
 
-def create_choice(db:Session, qid: int, choice: schema.Choice):
+def create_choice(db:Session, qid: int, choice: schema.ChoiceCreate):
 	obj = Choice(**choice.dict(), question_id=qid)
 	db.add(obj)
 	db.commit()
