@@ -59,7 +59,7 @@ def delete_question(qid: int, db: Session = Depends(get_db)):
 
 # Choice
 
-@app.post("/questions/{qid}/choice", response_model=schema.ChoiceCreate)
+@app.post("/questions/{qid}/choice", response_model=schema.ChoiceList)
 def create_choice(qid: int, choice: schema.ChoiceCreate, db: Session = Depends(get_db)):
 	question = crud.get_question(db=db, qid=qid)
 	if not question:

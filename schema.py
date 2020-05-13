@@ -10,7 +10,7 @@ class ChoiceBase(BaseModel):
 	choice_text: str
 	votes: int = 0
 
-class ChoiceCreate(BaseModel):
+class ChoiceCreate(ChoiceBase):
 	pass
 
 class ChoiceList(ChoiceBase):
