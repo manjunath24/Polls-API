@@ -19,7 +19,7 @@ pickleshare==0.7.5
 prompt-toolkit==3.0.5
 psycopg2==2.8.5
 ptyprocess==0.6.0
-pydantic==1.5.1
+pydantic==1.6.2
 Pygments==2.6.1
 pylint==2.5.2
 six==1.14.0
